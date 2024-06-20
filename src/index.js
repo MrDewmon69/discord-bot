@@ -14,4 +14,14 @@ client.on('ready', (c) => {
     console.log(`${c.user.username} is online!`)
 });
 
+client.on('messageCreate', (message) => {
+    if (message.author.bot) {
+        return;
+    }
+
+    if (message.content === 'hello') {
+        message.react("👋");
+    }
+})
+
 client.login(process.env.bot_token)
