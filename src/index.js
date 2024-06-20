@@ -1,4 +1,4 @@
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, ActivityType } = require('discord.js');
 require('dotenv').config()
 
 const client = new Client({
@@ -11,7 +11,13 @@ const client = new Client({
 });
 
 client.on('ready', (c) => {
-    console.log(`${c.user.username} is online!`)
+    console.log(`${c.user.username} is online!`);
+
+    client.user.setActivity({
+        name: "Life",
+        type: ActivityType.Streaming,
+        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    });
 });
 
 client.on('interactionCreate', (interaction) => {
